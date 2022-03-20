@@ -1,0 +1,14 @@
+input{
+    display: block;
+    margin: 5px 15px;
+}
+
+ul.footer__nav_link {
+    display: inline-flex;
+    width: 100%;
+}
+
+li {
+    margin: 0px 10px;
+    list-style-type: none;
+}

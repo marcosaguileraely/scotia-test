@@ -1,13 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+//import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+import main from './Pages/Main/Main';
+import residential_address from './Pages/Addresses/Residential/Residential';
+import property_address from './Pages/Addresses/Property/Property';
+import employment_address from './Pages/Addresses/Employment/Employment';
+import resume from './Pages/Resume/Resume';
+
+import store from './Store';
+
+import './index.css';
+
+render(
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        <Route path="/main" component={main} />
+        <Route exact path="/1_residential_address" component={residential_address} />
+        <Route path="/2_property_address" component={property_address} />
+        <Route path="/3_employment_address" component={employment_address} />
+        <Route path="/4_resume" component={resume} />
+      </Switch>
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 
