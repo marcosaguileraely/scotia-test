@@ -12,6 +12,7 @@ This project is a short availability in public just for evaluation purposes.
 ## 🧐 More time (research ), could be possible:
 - [x] Using Atomic Design Methodology [(Author Brad Frost)](https://bradfrost.com/blog/post/atomic-web-design/), will be possible to potentialize the modularity of Components,  and make posible the a design system for 🏦 Scotia Bank exclusivity.
 - [x] `AddressesForm`more granular and re-useable component.
+- [x] Fields validations were one of most challenging part of the test, but I accomplished nicely for the test.
 
 ## 🦿 How to run and install this project
 
