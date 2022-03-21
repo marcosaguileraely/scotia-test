@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from '../../Components/Header/Header';
 
 function ResumePage({ props, Customer }) {
     console.log(Customer);
+    const history = useHistory();
     return (
-        <div>
+        <div className='app__main'>
             <Header subtitle="Process registration summary" />
             <section>
                 <h4>Customer information:</h4>
@@ -56,8 +57,9 @@ function ResumePage({ props, Customer }) {
                 </address>
 
             </section>
-            <footer>
-                <button onClick={ () => alert("Thank you. We have received your submition.") }>Save and finish</button>
+            <footer className='form__group_button'>
+                <button onClick={() => history.goBack()}>Go back</button>
+                <button onClick={() => alert("Thank you. We have received your submition.")}>Save and finish</button>
             </footer>
         </div>
     );

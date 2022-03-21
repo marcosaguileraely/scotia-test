@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from '../../Components/Header/Header';
@@ -24,7 +24,7 @@ function MainPage({ customer_add_basic_info }) {
     }
 
     return (
-        <div>
+        <div className='app__main'>
             <Header subtitle="Welcome to Scotia Bank, customer portal" />
             <ul>
                 <li>Customer not found, please <button onClick={showForm}>Create an account.</button></li>
