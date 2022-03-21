@@ -42,33 +42,73 @@ const reducerFunctions = (state = initialState, action) => {
         }
     }
 
-    if (action.type === "ADD_RESIDENTIAL_ADDRESS") {
+    if (action.type === "ADD_ADDRESS") {
         //TODO: Add Residential Address
-        console.log('ADD_RESIDENTIAL_ADDRESS')
-        //console.log(action.value)
-        return {
-            ...state,
-            Customer: {
-                ...state.Customer,
-                Residential_Addr: {
-                    StreetNumber: action.value.street_number,
-                    StreetName:  action.value.street_name,
-                    City: action.value.city,
-                    Province: action.value.province,
-                    Code: action.value.postal_code,
+        console.log('ADD_ADDRESS')
+        console.log("Evaluation context...")
+
+        if (action.value.context_name === "residential_form") {
+            console.log("Context: Residential address...")
+            return {
+                ...state,
+                Customer: {
+                    ...state.Customer,
+                    Residential_Addr: {
+                        StreetNumber: action.value.street_number,
+                        StreetName: action.value.street_name,
+                        City: action.value.city,
+                        Province: action.value.province,
+                        Code: action.value.postal_code,
+                    }
+                }
+            }
+        }
+
+        if (action.value.context_name === "property_form") {
+            console.log("Context: Propierty address...")
+            return {
+                ...state,
+                Customer: {
+                    ...state.Customer,
+                    Property_Addr: {
+                        StreetNumber: action.value.street_number,
+                        StreetName: action.value.street_name,
+                        City: action.value.city,
+                        Province: action.value.province,
+                        Code: action.value.postal_code,
+                    }
+                }
+            }
+        }
+
+        if (action.value.context_name === "employment_form") {
+            console.log("Context: Employment address...")
+            return {
+                ...state,
+                Customer: {
+                    ...state.Customer,
+                    Employment_Addr: {
+                        Type: action.value.type,
+                        JobStatus: action.value.job_status,
+                        StreetNumber: action.value.street_number,
+                        StreetName: action.value.street_name,
+                        City: action.value.city,
+                        Province: action.value.province,
+                        Code: action.value.postal_code,
+                    }
                 }
             }
         }
 
     }
 
-    if (action.type === "ADD_PROPERTY_ADDRESS") {
-        //TODO: Add Property Address
-    }
+    // if (action.type === "ADD_PROPERTY_ADDRESS") {
+    //     //TODO: Add Property Address
+    // }
 
-    if (action.type === "ADD_EMPLOYMENT_ADDRESS") {
-        //TODO: Add Employment Address
-    }
+    // if (action.type === "ADD_EMPLOYMENT_ADDRESS") {
+    //     //TODO: Add Employment Address
+    // }
     return state
 }
 

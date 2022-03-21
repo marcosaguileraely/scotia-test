@@ -1,4 +1,4 @@
-input{
+input, select, button{
     display: block;
     margin: 5px 15px;
 }
@@ -11,4 +11,20 @@ ul.footer__nav_link {
 li {
     margin: 0px 10px;
     list-style-type: none;
+}
+
+.radio-group input, label {
+    display: inline;
+}
+
+.val__msg {
+    color: #ff7272;
+    font-size: small;
+    font-style: italic;
+    margin: 0px 15px;
+}
+
+.summary__section_content span {
+    display: block;
+    margin-left: 20px;
 }

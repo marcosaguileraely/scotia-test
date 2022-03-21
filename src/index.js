@@ -19,11 +19,11 @@ render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route path="/main" component={main} />
+        <Route exact path="/main" component={main} />
         <Route exact path="/1_residential_address" component={residential_address} />
-        <Route path="/2_property_address" component={property_address} />
-        <Route path="/3_employment_address" component={employment_address} />
-        <Route path="/4_resume" component={resume} />
+        <Route exact path="/2_property_address" component={property_address} />
+        <Route exact path="/3_employment_address" component={employment_address} />
+        <Route exact path="/4_resume" component={resume} />
       </Switch>
     </Router>
   </Provider>,
