@@ -9,7 +9,7 @@ function EmploymentPage(props) {
     const context = { context_name: 'employment_form' }
 
     return (
-        <div>
+        <div className='app__main'>
             <Header subtitle="Customer Employment Address registration" />
             <h4>Please enter following information.</h4>
 

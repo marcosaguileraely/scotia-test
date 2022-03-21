@@ -5,11 +5,10 @@ import AddressesForm from '../../../Components/Forms/AddressesForm';
 import Header from '../../../Components/Header/Header';
 
 function ResidentialPage() {
-    const navigation = {next:'../', back:"../"}
     const context = { context_name: 'residential_form' }
 
     return (
-        <div>
+        <div className='app__main'>
             <Header subtitle="Customer Residential Address registration" />
             <h4>Please enter following information.</h4>
 
