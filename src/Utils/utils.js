@@ -66,9 +66,6 @@ const fieldsValidation = function (fields) {
     }if (fields.postal_code === "") {
         evaluator.postal_code = "Postal code is required"
         evaluator.allow = false
-    }if (fields.postal_code.length !== 6) {
-        evaluator.postal_code = "Postal code must contain 6 digits"
-        evaluator.allow = false
     }
 
     return evaluator
