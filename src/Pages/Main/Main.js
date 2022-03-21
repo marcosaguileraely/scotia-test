@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-function MainPage({ Customer, customer_add_basic_info }) {
-    //console.log(Customer);
+import Header from '../../Components/Header/Header';
+
+function MainPage({ customer_add_basic_info }) {
 
     const history = useHistory();
 
@@ -24,8 +25,7 @@ function MainPage({ Customer, customer_add_basic_info }) {
 
     return (
         <div>
-            <h1>Welcome to Scotia Bank, customer portal</h1>
-            <hr />
+            <Header subtitle="Welcome to Scotia Bank, customer portal" />
             <ul>
                 <li>Customer not found, please <button onClick={showForm}>Create an account.</button></li>
             </ul>
