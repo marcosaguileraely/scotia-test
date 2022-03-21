@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-// Components
-import Footer from '../Footer/Footer';
 
 //Utils
 import params from '../../Utils/global_params';
 import fieldsValidation from "../../Utils/utils";
+
+//Style
+import '../../Pages/Addresses/style.css';
 
 function AddressesForm({ props, Customer, register_addr }) {
     console.log(Customer);
@@ -28,7 +28,6 @@ function AddressesForm({ props, Customer, register_addr }) {
 
     //UI behaviour states
     const [isEmployeeTypeHide, setIsEmployeeTypeHide] = useState('none');
-    const [isButtonEnabled, setIsButtonEnabled] = useState('disabled');
     const [textValidation, setTextValidation] = useState({});
 
     const globalBehave = () => {
@@ -70,10 +69,9 @@ function AddressesForm({ props, Customer, register_addr }) {
                 "postal_code": postalCode
             })
             navigateNextPage()
-        }else{
+        } else {
             setTextValidation(evaluator)
         }
-
     }
 
     const navigateNextPage = () => {
@@ -101,45 +99,44 @@ function AddressesForm({ props, Customer, register_addr }) {
     return (
         <div>
             <section>
-                <form>
-                    <h6 style={{ display: isEmployeeTypeHide }}>Emploment status</h6>
-                    <select id="res_type" name="type" onChange={e => employmentTypeChange(e)} style={{ display: isEmployeeTypeHide }}>
-                        {
-                            params.employment_type.map((type, index) => {
-                                return <option key={index} value={type.code}>{type.name}</option>
-                            })
-                        }
-                    </select>
-                    <span className='val__msg'>{textValidation.type}</span>
-                    <br />
-                    <h6 style={{ display: isEmployeeTypeHide }}>Address employment</h6>
-                    <div className='radio-group' style={{ display: isEmployeeTypeHide }}>
-                        <input type="radio" id="current" name="drone" onChange={e => setJobStatus(e.target.value)} value="current" /><label htmlFor="current">Current</label>
-                        <input type="radio" id="previous" name="drone" onChange={e => setJobStatus(e.target.value)} value="previous" /><label htmlFor="previous">Previous</label>
-                    </div>
+                <h6 style={{ display: isEmployeeTypeHide }}>Emploment status</h6>
+                <select id="res_type" name="type" onChange={e => employmentTypeChange(e)} style={{ display: isEmployeeTypeHide }}>
+                    {
+                        params.employment_type.map((type, index) => {
+                            return <option key={index} value={type.code}>{type.name}</option>
+                        })
+                    }
+                </select>
+                <span className='val__msg'>{textValidation.type}</span>
+                <br />
+                <h6 style={{ display: isEmployeeTypeHide }}>Address employment</h6>
+                <div className='radio-group' style={{ display: isEmployeeTypeHide }}>
+                    <input type="radio" id="current" name="drone" onChange={e => setJobStatus(e.target.value)} value="current" /><label htmlFor="current">Current</label>
+                    <input type="radio" id="previous" name="drone" onChange={e => setJobStatus(e.target.value)} value="previous" /><label htmlFor="previous">Previous</label>
+                </div>
 
-                    <input id="res_street_number" type="number" required placeholder='Street number' onChange={e => setStreetNumber(e.target.value)} />
-                    <span className='val__msg'>{textValidation.street_number}</span>
-                    <input id="res_street_name" type="text" required placeholder='Street name' onChange={e => setStreetName(e.target.value)} />
-                    <span className='val__msg'>{textValidation.street_name}</span>
-                    <input id="res_city" type="text" required placeholder='City' onChange={e => setCity(e.target.value)} />
-                    <span className='val__msg'>{textValidation.city}</span>
-                    <select id="res_provinces" name="provinces" onChange={e => setProvince(e.target.value)}>
-                        {
-                            params.provinces.map((province, index) => {
-                                return <option key={index} value={province.abbreviation}>{province.name}</option>
-                            })
-                        }
-                    </select>
-                    <span className='val__msg'>{textValidation.province}</span>
-                    <input id="res_code" type="number" required placeholder='Code' onChange={e => setPostalCode(e.target.value)} />
-                    <span className='val__msg'>{textValidation.postal_code}</span>
-                    {/* <input type="submit" value="Save and continue"/> */}
-                    <button onClick={saveAndContinue}>Save and continue</button>
-                </form>
+                <input id="res_street_number" type="number" required placeholder='Street number' onChange={e => setStreetNumber(e.target.value)} />
+                <span className='val__msg'>{textValidation.street_number}</span>
+                <input id="res_street_name" type="text" required placeholder='Street name' onChange={e => setStreetName(e.target.value)} />
+                <span className='val__msg'>{textValidation.street_name}</span>
+                <input id="res_city" type="text" required placeholder='City' onChange={e => setCity(e.target.value)} />
+                <span className='val__msg'>{textValidation.city}</span>
+                <select id="res_provinces" name="provinces" onChange={e => setProvince(e.target.value)}>
+                    {
+                        params.provinces.map((province, index) => {
+                            return <option key={index} value={province.abbreviation}>{province.name}</option>
+                        })
+                    }
+                </select>
+                <span className='val__msg'>{textValidation.province}</span>
+                <input id="res_code" type="number" required placeholder='Code' onChange={e => setPostalCode(e.target.value)} />
+                <span className='val__msg'>{textValidation.postal_code}</span>
+
+                <div className='form__group_button'>
+                    <button onClick={() => history.goBack()}>Go back</button>
+                    <button onClick={saveAndContinue}>Save and next</button>
+                </div>
             </section>
-
-            {/* <Footer props={navigation} /> */}
         </div>
     );
 }
