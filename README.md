@@ -30,3 +30,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+## Screenshots
+![enter image description here](https://i.postimg.cc/pddWTkjb/Screen-Shot-2022-03-21-at-6-52-08-PM.png)
+![enter image description here](https://i.postimg.cc/rpY8tWGd/Screen-Shot-2022-03-21-at-6-52-17-PM.png)
+![enter image description here](https://i.postimg.cc/JnDR3nKp/Screen-Shot-2022-03-21-at-6-53-03-PM.png)
